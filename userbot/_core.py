@@ -12,7 +12,7 @@ from userbot import bot as savagebot
 DELETE_TIMEOUT = 5
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "savage User"
 savage_logo = "./savagesameer/SAVAGE_BOT_LOGO.jpg
-savage = savage.uid
+savagebot = savage.uid
 savage_sameer= f"[{DEFAULTUSER}](tg://user?id={savage_sameer})"
 
 @savagebot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
