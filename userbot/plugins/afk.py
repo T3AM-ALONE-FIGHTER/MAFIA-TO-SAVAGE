@@ -8,7 +8,7 @@ from telethon import events
 from telethon.tl import functions, types
 from userbot import CMD_HELP
 from userbot import ALIVE_NAME, mafiaversion
-from mafiabot.utils import admin_cmd, edit_or_reply
+from savage.utils import admin_cmd, edit_or_reply
 from userbot.cmdhelp import CmdHelp
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
