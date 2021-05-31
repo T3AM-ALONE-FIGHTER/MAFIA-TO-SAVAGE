@@ -72,7 +72,7 @@ def load_module(shortname):
         mod.media_type = media_type
         # support for SAVAGE originals
         sys.modules["SAVAGE.utils"] = userbot.utils
-        sys.modules["savage"] = userbot
+        sys.modules["SAVAGE"] = userbot
         # support for paperplaneextended
         sys.modules["userbot.events"] = userbot.utils
         spec.loader.exec_module(mod)
