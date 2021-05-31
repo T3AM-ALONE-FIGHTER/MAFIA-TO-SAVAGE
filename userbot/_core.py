@@ -5,23 +5,23 @@ from pathlib import Path
 from telethon import events
 from telethon import functions, types
 from telethon.tl.types import InputMessagesFilterDocument
-from mafiabot.utils import *
+from savagebot.utils import *
 from userbot import *
-from userbot import bot as mafiabot
+from userbot import bot as savagebot
 
 DELETE_TIMEOUT = 5
-DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Mafia User"
-mafia_logo = "./SAVAGE_SAMEER/SAVAGE_BOT_LOGO.jpg
-SAVAGE_SAMEER = SAVAGE.uid
-SAVAGE_SAMEER= f"[{DEFAULTUSER}](tg://user?id={SAVAGE_SAMEER})"
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "savage User"
+savage_logo = "./savagesameer/SAVAGE_BOT_LOGO.jpg
+savage = savage.uid
+savage_sameer= f"[{DEFAULTUSER}](tg://user?id={savage_sameer})"
 
-@mafiabot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
-@mafiabot.on(sudo_cmd(pattern=r"send (?P<shortname>\w+)", allow_sudo=True))
+@savagebot.on(admin_cmd(pattern=r"send (?P<shortname>\w+)", outgoing=True))
+@savagebot.on(sudo_cmd(pattern=r"send (?P<shortname>\w+)", allow_sudo=True))
 async def send(event):
     if event.fwd_from:
         return
     message_id = event.message.id
-    thumb = mafia_logo
+    thumb = savage_logo
     input_str = event.pattern_match.group(1)
     omk = f"𝖯𝙻𝚄𝙶𝙸𝙽 𝙽𝙰𝙼𝙴 ➪ `{input_str}`\n𝖴𝙿𝙻𝙾𝙰𝙳𝙴𝙳 𝙱𝚈 ➪ {sameer}\n\n[𝚂𝙰𝚅𝙰𝙶𝙴 𝚄𝚂𝙴𝚁𝙱𝙾𝚃 ©](t.me/savage_userbot)"
     the_plugin_file = "./userbot/plugins/{}.py".format(input_str)
@@ -39,8 +39,8 @@ async def send(event):
     else:
         await edit_or_reply(event, "File not found..... Kek")
 
-@SAVAGE.on(admin_cmd(pattern="install$", outgoing=True))
-@SAVAGE.on(sudo_cmd(pattern="install$", allow_sudo=True))
+@savagebot.on(admin_cmd(pattern="install$", outgoing=True))
+@savagebot.on(sudo_cmd(pattern="install$", allow_sudo=True))
 async def install(event):
     if event.fwd_from:
         return
@@ -80,22 +80,22 @@ async def install(event):
             await event.edit(f"**Failed to Install** \n`Error`\n{str(e)}")
             return os.remove(downloaded_file_name)
     
-@SAVAGE.on(admin_cmd(pattern=r"uninstall (?P<shortname>\w+)", outgoing=True))
-@SAVAGE.on(sudo_cmd(pattern=r"uninstall (?P<shortname>\w+)", allow_sudo=True))
+@savagebot.on(admin_cmd(pattern=r"uninstall (?P<shortname>\w+)", outgoing=True))
+@savagebot.on(sudo_cmd(pattern=r"uninstall (?P<shortname>\w+)", allow_sudo=True))
 async def uninstall(h1m4n5hu0p):
-    if SAVAGE_SAMEER.fwd_from:
+    if savage_sameer.fwd_from:
         return
-    shortname = SAVAGE_SAMEER.pattern_match["shortname"]
+    shortname = savage_sameer.pattern_match["shortname"]
     dir_path =f"./userbot/plugins/{shortname}.py"
     try:
         remove_plugin(shortname)
         os.remove(dir_path)
-        await SAVAGE_SAMEER.edit(f"Uninstalled `{shortname}` successfully")
+        await savage_sameer.edit(f"Uninstalled `{shortname}` successfully")
     except OSError as e:
-        await SAVAGE_SAMEER.edit("Error: %s : %s" % (dir_path, e.strerror))
+        await savage_sameer.edit("Error: %s : %s" % (dir_path, e.strerror))
 
-@SAVAGE.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
-@SAVAGE.on(sudo_cmd(pattern=r"upload (?P<shortname>\w+)$", allow_sudo=True))
+@savagebot.on(admin_cmd(pattern=r"unload (?P<shortname>\w+)$"))
+@savagebot.on(sudo_cmd(pattern=r"upload (?P<shortname>\w+)$", allow_sudo=True))
 async def unload(event):
     if event.fwd_from:
         return
@@ -111,8 +111,8 @@ async def unload(event):
         )
 
 
-@SAVAGE.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
-@SAVAGE.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
+@savagebot.on(admin_cmd(pattern=r"load (?P<shortname>\w+)$"))
+@savagebot.on(sudo_cmd(pattern=r"load (?P<shortname>\w+)$", allow_sudo=True))
 async def load(event):
     if event.fwd_from:
         return
